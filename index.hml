@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octopus Energy CM Snippets</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --dark-bg: #0a0a0a;
+            --card-bg: rgba(26, 26, 26, 0.95);
+            --surface: rgba(255, 255, 255, 0.05);
+            --surface-hover: rgba(255, 255, 255, 0.08);
+            --text: #ffffff;
+            --text-secondary: #b0b0b0;
+            --border: rgba(255, 255, 255, 0.1);
+           
+            /* Tab-specific colors (energy-themed) */
+            --emt-primary: #00aaff; /* Blue for meters/energy monitoring */
+            --billing-primary: #4caf50; /* Green for money/billing */
+            --prepayment-primary: #ff9800; /* Orange for prepay */
+            --smartproducts-primary: #9c27b0; /* Purple for smart tech */
+            --sme-primary: #ff5722; /* Deep orange for business */
+            --vulnerable-primary: #e91e63; /* Pink for care/vulnerable */
+            --export-primary: #8bc34a; /* Light green for export/renewables */
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Animated gradient background (kept for modern sleek feel) */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0, 170, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(76, 175, 80, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 152, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 60% 70%, rgba(139, 195, 74, 0.1) 0%, transparent 50%);
+            animation: gradientShift 20s ease infinite;
+            z-index: 0;
+        }
+        @keyframes gradientShift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(40px, -40px) rotate(180deg); }
+        }
+        /* Floating social media logos (IG, Facebook, Twitter/X) */
+        .social-icons-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .floating-icon {
+            position: absolute;
+            font-size: 50px;
+            opacity: 0.1;
+            animation: float 25s infinite ease-in-out;
+            color: var(--text-secondary);
+        }
+        /* Positions */
+        .floating-icon:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .floating-icon:nth-child(2) { left: 80%; top: 10%; animation-delay: 4s; }
+        .floating-icon:nth-child(3) { left: 70%; top: 70%; animation-delay: 2s; }
+        .floating-icon:nth-child(4) { left: 15%; top: 80%; animation-delay: 6s; }
+        .floating-icon:nth-child(5) { left: 50%; top: 50%; animation-delay: 3s; }
+        .floating-icon:nth-child(6) { left: 30%; top: 40%; animation-delay: 5s; }
+        .floating-icon:nth-child(7) { left: 60%; top: 30%; animation-delay: 1s; }
+        .floating-icon:nth-child(8) { left: 40%; top: 90%; animation-delay: 7s; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
+            25% { transform: translateY(-40px) rotate(8deg); opacity: 0.15; }
+            50% { transform: translateY(-60px) rotate(-8deg); opacity: 0.08; }
+            75% { transform: translateY(-40px) rotate(5deg); opacity: 0.12; }
+        }
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .header h1 {
+            font-size: 52px;
+            font-weight: 800;
+            color: #00ff85; /* Octopus Energy-inspired green */
+            margin-bottom: 16px;
+            letter-spacing: -1.5px;
+            animation: fadeIn 1s ease-out;
+        }
+        .header .subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header .brand-logos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            font-size: 48px;
+            color: var(--text-secondary);
+            animation: fadeIn 1.5s ease-out;
+        }
+        /* Tab Navigation with unique icons and colors */
+        .tab-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+        .tab-button {
+            background: var(--surface);
+            color: var(--text);
+            padding: 18px 36px;
+            font-size: 17px;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            min-width: 200px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .tab-button i {
+            font-size: 26px;
+        }
+        .tab-button:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+        }
+        .tab-button.active {
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+        }
+        /* Specific styles per tab */
+        #tab-emt.active { background: linear-gradient(135deg, var(--emt-primary), #007acc); }
+        #tab-billing.active { background: linear-gradient(135deg, var(--billing-primary), #388e3c); }
+        #tab-prepayment.active { background: linear-gradient(135deg, var(--prepayment-primary), #f57c00); }
+        #tab-smartproducts.active { background: linear-gradient(135deg, var(--smartproducts-primary), #7b1fa2); }
+        #tab-sme.active { background: linear-gradient(135deg, var(--sme-primary), #e64a19); }
+        #tab-vulnerable.active { background: linear-gradient(135deg, var(--vulnerable-primary), #c2185b); }
+        #tab-export.active { background: linear-gradient(135deg, var(--export-primary), #689f38); }
+        /* Content cards with tab color accent */
+        .tab-content.active .content-card {
+            border-left: 6px solid var(--current-primary, #00aaff);
+        }
+        .tab-content.active .content-card h2 {
+            background: linear-gradient(90deg, var(--current-primary, #00aaff), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .content-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 32px;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            animation: fadeIn 0.8s ease-out;
+        }
+        .content-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 56px rgba(0, 0, 0, 0.6);
+        }
+        .content-card h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        /* Feedback section accent */
+        .tab-content.active .feedback-section h2 {
+            background: linear-gradient(90deg, var(--current-primary, #00aaff), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .feedback-section {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(20px);
+            margin-top: 48px;
+            animation: fadeIn 1s ease-out;
+        }
+        .feedback-section iframe {
+            width: 100%;
+            height: 600px;
+            background: transparent;
+        }
+        /* Sub-tabs inherit from parent - sleeker design */
+        .sub-tab-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+        .sub-tab-navigation .tab-button {
+            padding: 16px 32px;
+            min-width: 240px;
+            border-radius: 20px;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .sub-tab-navigation .tab-button.active {
+            background: linear-gradient(135deg, var(--prepayment-primary), #f57c00);
+            transform: scale(1.05);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 36px; }
+            .tab-button { padding: 14px 24px; font-size: 15px; min-width: auto; }
+            .content-card { padding: 28px; }
+            .tab-navigation { gap: 16px; }
+            .sub-tab-navigation { flex-direction: column; gap: 20px; }
+        }
+        /* Hidden class for tabs */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .sub-tab-content {
+            display: none;
+        }
+        .sub-tab-content.active {
+            display: block;
+        }
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="social-icons-bg">
+        <div class="floating-icon"><i class="fab fa-instagram"></i></div>
+        <div class="floating-icon"><i class="fab fa-facebook"></i></div>
+        <div class="floating-icon"><i class="fab fa-twitter"></i></div>
+        <div class="floating-icon"><i class="fab fa-x-twitter"></i></div>
+        <div class="floating-icon"><i class="fab fa-instagram"></i></div>
+        <div class="floating-icon"><i class="fab fa-facebook"></i></div>
+        <div class="floating-icon"><i class="fab fa-twitter"></i></div>
+        <div class="floating-icon"><i class="fab fa-x-twitter"></i></div>
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1>Octopus Energy CM Snippets</h1>
+            <p class="subtitle">Community Management Resources for Social Media Teams</p>
+            <div class="brand-logos">
+                <i class="fab fa-facebook-square"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+            </div>
+        </div>
+        <div class="tab-navigation">
+            <button id="tab-emt" class="tab-button active" onclick="openTab(event, 'emt')"><i class="fas fa-tachometer-alt"></i> EMT</button>
+            <button id="tab-billing" class="tab-button" onclick="openTab(event, 'billing')"><i class="fas fa-file-invoice-dollar"></i> Billing</button>
+            <button id="tab-prepayment" class="tab-button" onclick="openTab(event, 'prepayment')"><i class="fas fa-coins"></i> Pre-payment</button>
+            <button id="tab-smartproducts" class="tab-button" onclick="openTab(event, 'smartproducts')"><i class="fas fa-microchip"></i> Smart Products</button>
+            <button id="tab-sme" class="tab-button" onclick="openTab(event, 'sme')"><i class="fas fa-building"></i> SME</button>
+            <button id="tab-vulnerable" class="tab-button" onclick="openTab(event, 'vulnerable')"><i class="fas fa-heart"></i> Vulnerable</button>
+            <button id="tab-export" class="tab-button" onclick="openTab(event, 'export')"><i class="fas fa-exchange-alt"></i> Export</button>
+        </div>
+        <div id="emt" class="tab-content active" style="--current-primary: var(--emt-primary);">
+            <div class="content-card">
+                <h2>EMT Snippets</h2>
+                <p>Placeholder for EMT email snippets and knowledge.</p>
+            </div>
+            <div class="feedback-section">
+                <h2>Feedback & Improvements</h2>
+                <p>Please select "EMT" in the form for this tab.</p>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </div>
+        <div id="billing" class="tab-content" style="--current-primary: var(--billing-primary);">
+            <div class="content-card">
+                <h2>Billing Snippets</h2>
+                <p>Placeholder for Billing email snippets and knowledge.</p>
+            </div>
+            <div class="feedback-section">
+                <h2>Feedback & Improvements</h2>
+                <p>Please select "Billing" in the form for this tab.</p>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </div>
+        <div id="prepayment" class="tab-content" style="--current-primary: var(--prepayment-primary);">
+            <div class="sub-tab-navigation">
+                <button class="tab-button active" onclick="openSubTab(event, 'smart')"><i class="fas fa-mobile-alt"></i> Smart Prepay Meters</button>
+                <button class="tab-button" onclick="openSubTab(event, 'traditional')"><i class="fas fa-clock"></i> Traditional Prepay Meters</button>
+            </div>
+            <div id="smart" class="sub-tab-content active">
+                <div class="content-card">
+                    <h2>Smart Prepay Meters</h2>
+                    <p>Placeholder for Smart Prepay Meters email snippets and knowledge.</p>
+                </div>
+            </div>
+            <div id="traditional" class="sub-tab-content">
+                <div class="content-card">
+                    <h2>Traditional Prepay Meters</h2>
+                    <p>Placeholder for Traditional Prepay Meters email snippets and knowledge.</p>
+                </div>
+            </div>
+            <div class="feedback-section">
+                <h2>Feedback & Improvements</h2>
+                <p>Please select "Pre-payment" in the form for this tab.</p>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </div>
+        <div id="smartproducts" class="tab-content" style="--current-primary: var(--smartproducts-primary);">
+            <div class="content-card">
+                <h2>Smart Products</h2>
+                <p>Placeholder for Smart Products email snippets and knowledge.</p>
+            </div>
+            <div class="feedback-section">
+                <h2>Feedback & Improvements</h2>
+                <p>Please select "Smart Products" in the form for this tab.</p>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </div>
+        <div id="sme" class="tab-content" style="--current-primary: var(--sme-primary);">
+            <div class="content-card">
+                <h2>SME Snippets</h2>
+                <p>Placeholder for SME email snippets and knowledge.</p>
+            </div>
+            <div class="feedback-section">
+                <h2>Feedback & Improvements</h2>
+                <p>Please select "SME" in the form for this tab.</p>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </div>
+        <div id="vulnerable" class="tab-content" style="--current-primary: var(--vulnerable-primary);">
+            <div class="content-card">
+                <h2>Vulnerable Snippets</h2>
+                <p>Placeholder for Vulnerable email snippets and knowledge.</p>
+            </div>
+            <div class="feedback-section">
+                <h2>Feedback & Improvements</h2>
+                <p>Please select "Vulnerable" in the form for this tab.</p>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </div>
+        <div id="export" class="tab-content" style="--current-primary: var(--export-primary);">
+            <div class="content-card">
+                <h2>Export Snippets</h2>
+                <p>Placeholder for Export email snippets and knowledge.</p>
+            </div>
+            <div class="feedback-section">
+                <h2>Feedback & Improvements</h2>
+                <p>Please select "Export" in the form for this tab.</p>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openTab(evt, tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+           
+            document.querySelectorAll('.tab-navigation .tab-button').forEach(btn => btn.classList.remove('active'));
+            evt.currentTarget.classList.add('active');
+           
+            if (tabId === 'prepayment') {
+                document.querySelectorAll('.sub-tab-content').forEach(sub => sub.classList.remove('active'));
+                document.getElementById('smart').classList.add('active');
+                document.querySelectorAll('.sub-tab-navigation .tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelector('.sub-tab-navigation .tab-button').classList.add('active');
+            }
+        }
+       
+        function openSubTab(evt, subTabId) {
+            document.querySelectorAll('.sub-tab-content').forEach(sub => sub.classList.remove('active'));
+            document.getElementById(subTabId).classList.add('active');
+           
+            document.querySelectorAll('.sub-tab-navigation .tab-button').forEach(btn => btn.classList.remove('active'));
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
