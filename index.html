@@ -23,13 +23,13 @@
             --border: rgba(255, 255, 255, 0.1);
            
             /* Tab-specific colors (energy-themed) */
-            --emt-primary: #00aaff; /* Blue for meters/energy monitoring */
-            --billing-primary: #4caf50; /* Green for money/billing */
-            --prepayment-primary: #ff9800; /* Orange for prepay */
-            --smartproducts-primary: #9c27b0; /* Purple for smart tech */
-            --sme-primary: #ff5722; /* Deep orange for business */
-            --vulnerable-primary: #e91e63; /* Pink for care/vulnerable */
-            --export-primary: #8bc34a; /* Light green for export/renewables */
+            --emt-primary: #00aaff;
+            --billing-primary: #4caf50;
+            --prepayment-primary: #ff9800;
+            --smartproducts-primary: #9c27b0;
+            --sme-primary: #ff5722;
+            --vulnerable-primary: #e91e63;
+            --export-primary: #8bc34a;
         }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -39,7 +39,6 @@
             overflow-x: hidden;
             position: relative;
         }
-        /* Animated gradient background (kept for modern sleek feel) */
         body::before {
             content: '';
             position: fixed;
@@ -59,7 +58,6 @@
             0%, 100% { transform: translate(0, 0) rotate(0deg); }
             50% { transform: translate(40px, -40px) rotate(180deg); }
         }
-        /* Floating social media logos (IG, Facebook, Twitter/X) */
         .social-icons-bg {
             position: fixed;
             width: 100%;
@@ -77,7 +75,6 @@
             animation: float 25s infinite ease-in-out;
             color: var(--text-secondary);
         }
-        /* Positions */
         .floating-icon:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
         .floating-icon:nth-child(2) { left: 80%; top: 10%; animation-delay: 4s; }
         .floating-icon:nth-child(3) { left: 70%; top: 70%; animation-delay: 2s; }
@@ -106,7 +103,7 @@
         .header h1 {
             font-size: 52px;
             font-weight: 800;
-            color: #00ff85; /* Octopus Energy-inspired green */
+            color: #00ff85;
             margin-bottom: 16px;
             letter-spacing: -1.5px;
             animation: fadeIn 1s ease-out;
@@ -127,7 +124,6 @@
             color: var(--text-secondary);
             animation: fadeIn 1.5s ease-out;
         }
-        /* Tab Navigation with unique icons and colors */
         .tab-navigation {
             display: flex;
             flex-wrap: wrap;
@@ -165,7 +161,6 @@
             box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
             transform: scale(1.05);
         }
-        /* Specific styles per tab */
         #tab-emt.active { background: linear-gradient(135deg, var(--emt-primary), #007acc); }
         #tab-billing.active { background: linear-gradient(135deg, var(--billing-primary), #388e3c); }
         #tab-prepayment.active { background: linear-gradient(135deg, var(--prepayment-primary), #f57c00); }
@@ -173,7 +168,7 @@
         #tab-sme.active { background: linear-gradient(135deg, var(--sme-primary), #e64a19); }
         #tab-vulnerable.active { background: linear-gradient(135deg, var(--vulnerable-primary), #c2185b); }
         #tab-export.active { background: linear-gradient(135deg, var(--export-primary), #689f38); }
-        /* Content cards with tab color accent */
+        
         .tab-content.active .content-card {
             border-left: 6px solid var(--current-primary, #00aaff);
         }
@@ -202,7 +197,60 @@
             font-weight: 700;
             margin-bottom: 24px;
         }
-        /* Feedback section accent */
+        .content-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: var(--current-primary, #00aaff);
+        }
+        .content-card h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+        .content-card p {
+            line-height: 1.8;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+        .content-card ul, .content-card ol {
+            margin-left: 24px;
+            margin-bottom: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .content-card li {
+            margin-bottom: 8px;
+        }
+        .content-card strong {
+            color: var(--text);
+            font-weight: 700;
+        }
+        .highlight-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--current-primary, #00aaff);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .warning-box {
+            background: rgba(255, 152, 0, 0.1);
+            border: 2px solid #ff9800;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .info-box {
+            background: rgba(0, 170, 255, 0.1);
+            border: 2px solid #00aaff;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        
         .tab-content.active .feedback-section h2 {
             background: linear-gradient(90deg, var(--current-primary, #00aaff), #ffffff);
             -webkit-background-clip: text;
@@ -223,7 +271,6 @@
             height: 600px;
             background: transparent;
         }
-        /* Sub-tabs inherit from parent - sleeker design */
         .sub-tab-navigation {
             display: flex;
             justify-content: center;
@@ -242,7 +289,6 @@
             transform: scale(1.05);
             box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
         }
-        /* Responsive */
         @media (max-width: 768px) {
             .header h1 { font-size: 36px; }
             .tab-button { padding: 14px 24px; font-size: 15px; min-width: auto; }
@@ -250,7 +296,6 @@
             .tab-navigation { gap: 16px; }
             .sub-tab-navigation { flex-direction: column; gap: 20px; }
         }
-        /* Hidden class for tabs */
         .tab-content {
             display: none;
         }
@@ -263,10 +308,53 @@
         .sub-tab-content.active {
             display: block;
         }
-        /* Fade-in animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* New styles for better content presentation */
+        .snippet-section {
+            margin-bottom: 32px;
+        }
+        .snippet-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        code {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #00ff85;
+        }
+        
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 24px 0;
+        }
+        
+        .reason-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .reason-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-4px);
+        }
+        
+        .reason-card.positive {
+            border-left: 4px solid #4caf50;
+        }
+        
+        .reason-card.negative {
+            border-left: 4px solid #f44336;
         }
     </style>
 </head>
@@ -284,7 +372,7 @@
     <div class="container">
         <div class="header">
             <h1>Octopus Energy CM Snippets</h1>
-            <p class="subtitle">Community Management Resources for NZ Social Media Team</p>
+            <p class="subtitle">Community Management Resources for Social Media Teams</p>
             <div class="brand-logos">
                 <i class="fab fa-facebook-square"></i>
                 <i class="fab fa-instagram"></i>
@@ -300,28 +388,347 @@
             <button id="tab-vulnerable" class="tab-button" onclick="openTab(event, 'vulnerable')"><i class="fas fa-heart"></i> Vulnerable</button>
             <button id="tab-export" class="tab-button" onclick="openTab(event, 'export')"><i class="fas fa-exchange-alt"></i> Export</button>
         </div>
+        
+        <!-- EMT TAB -->
         <div id="emt" class="tab-content active" style="--current-primary: var(--emt-primary);">
             <div class="content-card">
-                <h2>EMT Snippets</h2>
-                <p>Placeholder for EMT email snippets and knowledge.</p>
+                <h2>Emergencies</h2>
+                <p>Essential information for handling Emergencies related queries and technical suppor.</p>
+                
+                <div class="snippet-section">
+                    <h3>Coming Soon</h3>
+                    <p>Comprehensive EMT guidelines and snippets are currently being compiled. Check back soon for updates!</p>
+                </div>
             </div>
             <div class="feedback-section">
                 <h2>Feedback & Improvements</h2>
                 <p>Please select "EMT" in the form for this tab.</p>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </div>
+        
+        <!-- BILLING TAB -->
         <div id="billing" class="tab-content" style="--current-primary: var(--billing-primary);">
             <div class="content-card">
-                <h2>Billing Snippets</h2>
-                <p>Placeholder for Billing email snippets and knowledge.</p>
+                <h2>Billing Basics</h2>
+                
+                <div class="snippet-section">
+                    <h3>Backbilling Basics: Core</h3>
+                    
+                    <h4>What is backbilling?</h4>
+                    <p>Our obligation as a supplier is to:</p>
+                    <ul>
+                        <li>Ensure a customer's direct debit is set to a reasonable amount</li>
+                        <li>Ensure a customer is billed accurately</li>
+                        <li>Ensure a customer is billed in a timely fashion</li>
+                    </ul>
+                    
+                    <p>We do this by:</p>
+                    <ul>
+                        <li>Performing payment adequacy reviews</li>
+                        <li>Obtaining meter readings</li>
+                        <li>Sending regular bills</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <p><strong>OFGEM rules</strong> state that we are not allowed to <strong>seek additional payment</strong> for unbilled or rebilled energy used more than 12 months ago. So if we don't meet our obligations, we have to start writing off charges.</p>
+                    </div>
+                    
+                    <h4>What do we mean by "additional payment?"</h4>
+                    <p>This means that if we breach any of our obligations, we can charge the customer as long as it doesn't put them into debt/further into debt. If they go into debit, we're essentially asking for them to make payments on top of what they've already paid, i.e. we're seeking additional payments.</p>
+                    
+                    <div class="info-box">
+                        <h4>Example:</h4>
+                        <p>If we tell a customer "you should pay £80/month" and 13 months later we've never sent a bill. On that 13th month, if we bill them and they're still in credit or at £0, great! We were right! No need to write off charges.</p>
+                        <p>However, if we bill on that 13th month, and they go into debit, we were wrong:</p>
+                        <ul>
+                            <li>They should have been paying more than £80</li>
+                            <li>We didn't notify them through payment adequacy</li>
+                            <li>We didn't get a reading to find out if our estimates were accurate</li>
+                            <li>We've added charges that are older than 12 months</li>
+                        </ul>
+                        <p>We didn't do enough to protect the customer from this so we need to start writing off charges.</p>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>When to Write Off Charges</h3>
+                    
+                    <div class="reasons-grid">
+                        <div class="reason-card negative">
+                            <h4>✓ Write Off Required</h4>
+                            <p><strong>Customer not billed for over a year</strong></p>
+                            <p>This includes consumption gaps we have filled where the charging period is over a year ago.</p>
+                        </div>
+                        
+                        <div class="reason-card negative">
+                            <h4>✓ Write Off Required</h4>
+                            <p><strong>Rebilled for over a year period</strong></p>
+                            <p>The customer is now worse off as the new charges are higher than the old charges.</p>
+                        </div>
+                        
+                        <div class="reason-card negative">
+                            <h4>✓ Write Off Required</h4>
+                            <p><strong>Underestimating usage for over a year</strong></p>
+                            <p>They submit a reading and have now received a high charge.</p>
+                        </div>
+                        
+                        <div class="reason-card negative">
+                            <h4>✓ Write Off Required</h4>
+                            <p><strong>No payment adequacy review in over a year</strong></p>
+                            <p>The customer is in debt as a result.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reasons-grid">
+                        <div class="reason-card positive">
+                            <h4>✗ No Write Off</h4>
+                            <p><strong>Customer is in credit</strong></p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>✗ No Write Off</h4>
+                            <p><strong>Rebilled - same or lower charges</strong></p>
+                            <p>The new charges are the same or less than the old charges.</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>✗ No Write Off</h4>
+                            <p><strong>Overestimating their usage</strong></p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>✗ No Write Off</h4>
+                            <p><strong>Customer prevented meter reading</strong></p>
+                            <p>The customer has prevented us from obtaining a meter reading.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
+            <div class="content-card">
+                <h2>Business Billing Basics</h2>
+                
+                <div class="highlight-box">
+                    <h4>TLDR:</h4>
+                    <ul>
+                        <li><strong>Invoices/Credit Notes</strong> are issued instead of statements</li>
+                        <li>A <strong>monthly variable direct debit</strong> only</li>
+                        <li><strong>Monthly billing</strong> only, we do not offer weekly/quarterly invoices</li>
+                        <li><strong>Charges must be issued on invoices</strong> and <strong>Credits must be issued on Credit Notes</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <p><strong>Please note:</strong> Billing queries should be passed onto the business team either on the <code>business_operations</code> slack channel or by emailing <code>business@octopus.energy</code>.</p>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Key Information</h3>
+                    <p>Business bills are usually sent out in the first 10 working days of the month. A good chunk of the business bills are manually reviewed by the business team before we issue them. This is in case Kraken has picked up a potential discrepancy (i.e. potential incorrect meter readings, significant high charge etc).</p>
+                    
+                    <p>Billing for all business accounts is currently set for the 1st of the month. Kraken will look for a reading in the last 5 days on each account and will use that reading to bill to.</p>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Invoices vs Statements</h3>
+                    <p>For business customers, we issue <strong>invoices & credit notes</strong> whereas domestic customers are issued <strong>statements</strong>. The main differences are that invoices are produced on a <strong>monthly basis</strong> and that credits and charges need to be issued out on <strong>separate documents</strong>.</p>
+                    
+                    <h4>Breakdown of an Invoice</h4>
+                    <p>The structure of an invoice is very similar to a statement. It shows relevant account number & tariff information as well as a breakdown of the charges for this period, how they were calculated and a running account balance.</p>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>How to Issue a Business Invoice or Credit</h3>
+                    <p>The invoice tab will only show on business accounts. The initial part of billing works the exact same way as domestic where we can un-bill and re-bill readings!</p>
+                    
+                    <div class="highlight-box">
+                        <p>However, once this is done there are a few additional steps we need to take to ensure the charges/credits are issued out to the customer.</p>
+                    </div>
+                    
+                    <ol>
+                        <li>
+                            <strong>Create Charges/Credits</strong>
+                            <p>Once we have finished billing on (Re)bill readings the charges and credits will show on the left side of the invoices tab under <strong>'Uninvoiced charges & credits'</strong>. This means the charges/credits have been created but they have not yet been added to a document.</p>
+                        </li>
+                        
+                        <li>
+                            <strong>Add to Documents</strong>
+                            <p>Next we need to tick the box next to each charge or credit and then press <strong>'Actions'</strong> to add them to an Invoice or Credit Note. We should not be adding charges and credits to the same document. All charges should be <strong>+ Add to new invoice</strong> and all credits should be <strong>+ Add to new credit note</strong>. Following this they will show under <strong>'Unissued invoices'</strong>. This means the Invoice or Credit Note has now been generated but not yet issued to the customer.</p>
+                        </li>
+                        
+                        <li>
+                            <strong>Issue to Customer</strong>
+                            <p>Finally we need to click <strong>'Preview'</strong>, this will take you to the Invoice/Credit Note where you can then select <strong>'Issue to customer'</strong>. After this if you reload the page the document will now show on the right hand side. The date on the left side is the date the invoice was issued. The right side shows the total amount of the invoice, and in the middle are the details of the charge including dates of consumption.</p>
+                        </li>
+                        
+                        <li>
+                            <strong>Check Payment Schedule</strong>
+                            <p>All Business Customers should be on a <strong>Variable Direct Debit</strong> schedule. After issuing any invoices we should always check the Payments tab to make sure that the correct amount has been scheduled. If the invoice is <strong>over £3000</strong> we will need to <strong>manually approve the payment</strong> and if we are doing any rebilling we may need to delete/change payment amounts.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <h2>Final Bills</h2>
+                
+                <div class="snippet-section">
+                    <h3>Final Bills: Core</h3>
+                    <p>A final bill is sent when a customer leaves our supply or moves out of their property and provides us with final meter readings. Kraken should automatically mark these bills as "final" so that they are easy to spot.</p>
+                    
+                    <p>If we have not received a final reading, Kraken will automatically estimate the final read.</p>
+                    
+                    <div class="warning-box">
+                        <p><strong>⚠️ REMEMBER:</strong> Any final balance refunds given based on estimated final reads may need to be paid back by the customer when the actual read/CoS is received. In these instances, we send a corrected final bill and either request or return any monies owed.</p>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Direct Debits and Final Bills</h3>
+                    <p>Kraken will automatically generate the final balance settlement once we have generated the final bill - this will be a refund if the account is in credit or a charge if the account is in debit.</p>
+                    
+                    <p>If you are manually final billing an account, always check if the final balance settlement has been generated automatically. If it hasn't then you will need to request this. Always check for gaps or minus charges to ensure the refund is correct first.</p>
+                    
+                    <p>If a customer gets in contact to say they want to set up a payment plan, we can do this by setting the whole DD amount to be "debt repayment element". This will stop Kraken requesting the whole amount.</p>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Final Bills: Additional</h3>
+                    
+                    <h4>Delays to final bills</h4>
+                    <p>The main reason a final bill would not be generated would be if Kraken is missing a final or confirmed change of supplier (CoS) reading.</p>
+                    
+                    <ul>
+                        <li>Kraken will automatically estimate where it can</li>
+                        <li>We will send out an estimated final bill after <strong>42 days</strong> if we do not have a CoS read for someone who has switched away</li>
+                        <li>If someone has moved out then Kraken will estimate after <strong>35 days</strong> of not receiving a customer own reading</li>
+                    </ul>
+                    
+                    <h4>Disputes</h4>
+                    <p>For a traditional meter, when we haven't received a confirmed CoS reading for over 30 days, we can <strong>dispute</strong>.</p>
+                    
+                    <p>Opening this dispute will send a request to the new supplier to send over the reading they are using as their opening reading.</p>
+                    
+                    <p>If an initial D0010 has been sent, there will be a "play" button with the reading on the meter readings events. However, if we have not received a D0086 after more than 10 working days of sending this D0010, this will need chasing with the DC via email. For a smart meter, we can send a D0010 to our DC and they can issue the D0086.</p>
+                    
+                    <div class="warning-box">
+                        <h4>❌ What NOT to do</h4>
+                        <ul>
+                            <li>If it is a <strong>smart CoS loss</strong>, please do not raise a dispute or chase the other supplier via SDEP. As we both work independently with our DC, contacting the other supplier won't result in the D0086 being received - we are working independently with our DC so we shouldn't need to contact the other supplier unless we are following the traditional process.</li>
+                            <li>If it is <strong>Half Hourly Settled smart meter</strong>, then we do not need a D0086, we only require a D0010 to bill to/from.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <h2>Migration Billing</h2>
+                
+                <div class="highlight-box">
+                    <p><strong>Migration</strong> happens as a result of a system migration, acquisition or SOLR (such as Avro and Bulb).</p>
+                    <p>We migrate all the customer details and as much old billing information as possible over to Kraken.</p>
+                    <p>The first statement in Kraken should always be billed from the <strong>transfer reading</strong>. The transfer reading is the last meter reading "billed to" by the old supplier on the old billing system.</p>
+                    <p>The bills the customer received on the old billing system or from their old supplier can be found in Kraken as <strong>"historical bills"</strong>.</p>
+                    <p>CoS reads are less important, instead we always bill from the transfer reading.</p>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>What is Migration?</h3>
+                    <p>Where an account has moved from an old billing system to Kraken. Accounts will migrate with more or less information depending on the reason they have been migrated.</p>
+                    
+                    <h4>System migration and Acquisition</h4>
+                    <ul>
+                        <li>Customer information and contact details</li>
+                        <li>Supply point details</li>
+                        <li>Historical bills for the entire supply period</li>
+                        <li>Payment history for the entire supply period</li>
+                        <li>Some notes history</li>
+                    </ul>
+                    
+                    <h4>SOLR</h4>
+                    <ul>
+                        <li>Customer information and contact details</li>
+                        <li>Supply point details</li>
+                        <li>The last bill</li>
+                    </ul>
+                    
+                    <div class="info-box">
+                        <p>You will be able to see that an account has migrated from the <strong>'Account Details'</strong> tab on the customer's Kraken account.</p>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>What is Migration Billing?</h3>
+                    <p>This is the first bill after migration.</p>
+                    
+                    <p>To bill a migrated account like this you must bill from the <strong>transfer readings</strong>, not the confirmed change of supplier readings.</p>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>What is a transfer reading?</h3>
+                    <p>The <strong>transfer reading</strong> is the final reading on the final bill from the old system. If it's an acquisition or SOLR it would also be the final bill under the old brand name.</p>
+                    
+                    <p>We should bill from this read and not the OMR (COS reading) on these accounts. Billing from the COS read will very likely cause billing gaps or double billing on these accounts.</p>
+                    
+                    <div class="warning-box">
+                        <p><strong>⚠️ IMPORTANT:</strong> If there is an issue with the transfer reading (e.g. it's too high/too low/there was an unrecorded COT before this) please raise this to your billing pro. Billing pros have access to a tool to adjust what reading we use as the transfer read and amend the billing alongside this.</p>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Viewing Historical Bills in Kraken</h3>
+                    <p>A key feature of these accounts is the <strong>'View historical bills tab'</strong> that can be found under <strong>'Actions'</strong> in the <strong>'Statements'</strong> tab.</p>
+                    
+                    <p>This account is an acquisition account so we are able to see their historical bills using this tab.</p>
+                    
+                    <div class="highlight-box">
+                        <p>Always check that the transfer readings match the final reading on the customer's final historical bill.</p>
+                        <p>If the readings are not the same, edit the transfer readings on Kraken to match the final bill.</p>
+                    </div>
+                    
+                    <div class="info-box">
+                        <p><strong>Note:</strong> Historical bills are not always in the correct order.</p>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Migration Billing: Additional</h3>
+                    
+                    <h4>What if there are no transfer readings?</h4>
+                    <ol>
+                        <li>Reverse any charges on the account from anything other than a transfer read</li>
+                        <li>Use the historical bills tool to find the last bill the customer received from the previous supplier</li>
+                        <li>Take the last readings from the final bill and add them into properties and meter points on the date the agreements start</li>
+                        <li>There may be a few days gap between the final bill and the migration bill opening read. That's ok, ignore it</li>
+                        <li>Bill from the transfer read you just put in to the latest reading</li>
+                        <li>Kraken shouldn't detect any billing gaps and the opening read on the migration bill should match the final read on the final bill</li>
+                    </ol>
+                </div>
+                
+                <div class="snippet-section">
+                    <h4>No readings on the account and no historical bills</h4>
+                    <p>The majority of accounts do have transfer readings but in cases where they do not the first step would be to check with the customer.</p>
+                    
+                    <p>If the customer has their last bill from before migration we can add the final readings off this bill into Kraken and bill them to an up to date meter reading.</p>
+                    
+                    <p>If the account only has a debit with no other information, then this is a shell account that we are using to chase the debit on the account. Therefore, there is no need for us to bill these accounts.</p>
+                </div>
+                
+                <div class="snippet-section">
+                    <h4>Over 1 year old</h4>
+                    <p>If any of this is over 1 year old, see the article on backbilling.</p>
+                </div>
+            </div>
+            
             <div class="feedback-section">
                 <h2>Feedback & Improvements</h2>
                 <p>Please select "Billing" in the form for this tab.</p>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </div>
+        
+        <!-- PREPAYMENT TAB -->
         <div id="prepayment" class="tab-content" style="--current-primary: var(--prepayment-primary);">
             <div class="sub-tab-navigation">
                 <button class="tab-button active" onclick="openSubTab(event, 'smart')"><i class="fas fa-mobile-alt"></i> Smart Prepay Meters</button>
@@ -330,63 +737,693 @@
             <div id="smart" class="sub-tab-content active">
                 <div class="content-card">
                     <h2>Smart Prepay Meters</h2>
-                    <p>Placeholder for Smart Prepay Meters email snippets and knowledge.</p>
+                    <p>Information and guidance for customers with smart prepayment meters.</p>
+                    
+                    <div class="snippet-section">
+                        <h3>Coming Soon</h3>
+                        <p>Comprehensive smart prepay meter guidelines and snippets are currently being compiled. Check back soon for updates!</p>
+                    </div>
                 </div>
             </div>
             <div id="traditional" class="sub-tab-content">
                 <div class="content-card">
                     <h2>Traditional Prepay Meters</h2>
-                    <p>Placeholder for Traditional Prepay Meters email snippets and knowledge.</p>
+                    <p>Information and guidance for customers with traditional prepayment meters.</p>
+                    
+                    <div class="snippet-section">
+                        <h3>Coming Soon</h3>
+                        <p>Comprehensive traditional prepay meter guidelines and snippets are currently being compiled. Check back soon for updates!</p>
+                    </div>
                 </div>
             </div>
             <div class="feedback-section">
                 <h2>Feedback & Improvements</h2>
                 <p>Please select "Pre-payment" in the form for this tab.</p>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </div>
+        
+        <!-- SMART PRODUCTS TAB -->
         <div id="smartproducts" class="tab-content" style="--current-primary: var(--smartproducts-primary);">
             <div class="content-card">
-                <h2>Smart Products</h2>
-                <p>Placeholder for Smart Products email snippets and knowledge.</p>
+                <h2>Introduction to Intelligent Octopus</h2>
+                
+                <div class="snippet-section">
+                    <h3>What is Intelligent Octopus?</h3>
+                    <div class="highlight-box">
+                        <p>Our <strong>Intelligent Octopus products</strong> are our latest family of smart tariffs, they are products that are designed to <strong>optimise low carbon technologies (LCT)</strong> in order to shift consumption to <strong>low-cost, green periods</strong> of the day.</p>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>What Intelligent Octopus products do we have?</h3>
+                    <div class="reasons-grid">
+                        <div class="reason-card positive">
+                            <h4>🚗 Intelligent Octopus Go</h4>
+                            <p>For EVs & Chargers</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>🔋 Intelligent Octopus Flux</h4>
+                            <p>For Home Batteries</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Why do we offer these products?</h3>
+                    <p>Our Intelligent Octopus products help customers reduce their electricity bills, by shifting their consumption to periods of the day that are greener and therefore cheaper. This provides customers with <strong>lower energy costs and smart device automation</strong>.</p>
+                    
+                    <div class="info-box">
+                        <h4>Energy Flexibility & Grid Balancing</h4>
+                        <p>By controlling customers' devices, we can help to <strong>'balance the grid'</strong> - a key strategy for Octopus Energy and referred to as <strong>'Energy Flexibility'</strong>.</p>
+                        <p>Flexibility is an increasingly crucial tool used to manage the peaks and troughs that we see within the energy grid, and will continue to be vitally important as we head towards a Net Zero future.</p>
+                        <p><strong>Importantly:</strong> Using energy 'flexibly' will help reduce bills for <strong>everyone</strong>, not just customers with LCTs.</p>
+                    </div>
+                </div>
             </div>
+            
+            <div class="content-card">
+                <h2>Intelligent Octopus Go: Introduction to the tariff</h2>
+                
+                <div class="highlight-box">
+                    <p><strong>Intelligent Octopus Go (IO Go)</strong> is an innovative product that we offer, designed to optimise charging for electric vehicle (EV) owners.</p>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Overview of Intelligent Octopus Go</h3>
+                    <p>Intelligent Octopus Go (IO Go) is a smart tariff for customers with an EV that they charge at home.</p>
+                    
+                    <p>Customers connect their device (either their EV or charger) to our system through the Octopus Energy app, we then optimise their charging to ensure that we're charging at periods that are greener & cheaper. We refer to these periods of charging as <strong>'smart charging'</strong>. These periods of smart charging will always be on the off-peak rate.</p>
+                    
+                    <p>This smart charges are set as schedules determined by us during the cheapest times of day - normally (but not always) during the <strong>off peak window (23:30-05:30)</strong>.</p>
+                    
+                    <p>This results in lower energy costs for the customer, hands free optimisation and unlocks energy flexibility that benefits the grid.</p>
+                    
+                    <div class="info-box">
+                        <p>A customer will require an <strong>eligible EV or charger</strong> and a <strong>smart meter that is providing half hourly readings</strong>.</p>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Key Benefits</h3>
+                    
+                    <div class="reasons-grid">
+                        <div class="reason-card positive">
+                            <h4>💰 Cost Savings</h4>
+                            <p>Customers can take advantage of lower electricity rates during off-peak hours, leading to reductions in their energy bills.</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>⚡ Convenience</h4>
+                            <p>Kraken allows for automated scheduling and optimisation of energy use, minimising manual intervention.</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>🌱 Sustainability</h4>
+                            <p>By shifting EV energy consumption, IO Go supports the use of renewable energy and helps balance the demand on the electricity grid.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <h2>Intelligent Octopus Go Tariff Structure/Billing</h2>
+                
+                <div class="snippet-section">
+                    <h3>Tariff Periods</h3>
+                    <p>IO Go is a product with two periods: a <strong>peak</strong> and an <strong>off-peak period</strong>, between <strong>23:30 and 05:30</strong>.</p>
+                    
+                    <p>There are both <strong>variable and fixed versions</strong> of IO Go. There is a <strong>£25 exit fee</strong> for the fixed version.</p>
+                    
+                    <p>Customers can check the rates on the IO Go webpage.</p>
+                    
+                    <div class="info-box">
+                        <p>The peak rates and standing charge vary by GSP, but the <strong>off-peak rate remains consistent</strong> across each area - it is currently <strong>7p / kWh</strong>.</p>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Smart Charging Billing</h3>
+                    <p>In addition to any usage during the off-peak period being billed at off-peak rates, <strong>any smart charging will also be billed at off-peak rates at any time of the day</strong>.</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Example:</strong> If we create a schedule that has a period of smart charging between 7 pm and 7:30 pm, usage during this half-hour slot will be billed at off-peak rates.</p>
+                    </div>
+                    
+                    <p>If customers <strong>'bump charge'</strong> outside of a smart charging schedule, they may be billed at peak rates (depending on the time of day). Please see the matrix below for a breakdown of the rates:</p>
+                    
+                    <div style="overflow-x: auto; margin: 24px 0;">
+                        <table style="width: 100%; border-collapse: collapse; background: rgba(255, 255, 255, 0.05); border-radius: 12px; overflow: hidden;">
+                            <thead>
+                                <tr style="background: rgba(255, 255, 255, 0.1);">
+                                    <th style="padding: 16px; text-align: left; border-bottom: 2px solid var(--border);"></th>
+                                    <th style="padding: 16px; text-align: center; border-bottom: 2px solid var(--border);">Peak Period<br>(05:30 - 23:30)</th>
+                                    <th style="padding: 16px; text-align: center; border-bottom: 2px solid var(--border);">Off-peak Period<br>(23:30 - 05:30)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 16px; border-bottom: 1px solid var(--border); font-weight: 600;">Smart Charging</td>
+                                    <td style="padding: 16px; text-align: center; border-bottom: 1px solid var(--border); background: rgba(76, 175, 80, 0.2); color: #4caf50; font-weight: 600;">Off-peak rates</td>
+                                    <td style="padding: 16px; text-align: center; border-bottom: 1px solid var(--border); background: rgba(76, 175, 80, 0.2); color: #4caf50; font-weight: 600;">Off-peak rates</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 16px; font-weight: 600;">Bump Charging</td>
+                                    <td style="padding: 16px; text-align: center; background: rgba(244, 67, 54, 0.2); color: #f44336; font-weight: 600;">Peak rates</td>
+                                    <td style="padding: 16px; text-align: center; background: rgba(76, 175, 80, 0.2); color: #4caf50; font-weight: 600;">Off-peak rates</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <h2>Smart Charging</h2>
+                
+                <div class="snippet-section">
+                    <h3>How Smart Charging Works</h3>
+                    <p>Once a customer has connected their device, we'll be able to control the charging - their device information will appear in Kraken under the <strong>'Devices'</strong> tab.</p>
+                    
+                    <p>In the Octopus Energy app, a customer will set their charging preferences - this will include:</p>
+                    <ul>
+                        <li>How much charge they would like</li>
+                        <li>What time they would like this to be achieved by</li>
+                    </ul>
+                    
+                    <p>Once a customer plugs in, we then create an <strong>optimised charging plan</strong> based on their preferences and grid price signals. This is called <strong>'smart charging'</strong>.</p>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Bump Charging</h3>
+                    <p>If a customer wishes to add charge to their vehicle outside of their charge schedule, they can <strong>'bump' charge</strong> - this option is available to them within the app.</p>
+                    
+                    <div class="warning-box">
+                        <p><strong>⚠️ Important:</strong> Bump charging during peak hours (05:30 - 23:30) will be billed at peak rates. Only bump charging during off-peak hours (23:30 - 05:30) is billed at off-peak rates.</p>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Requirements</h3>
+                    <p>To use Intelligent Octopus Go, customers need:</p>
+                    
+                    <div class="reasons-grid">
+                        <div class="reason-card positive">
+                            <h4>🚗 Eligible Device</h4>
+                            <p>An eligible EV or home charger (check eligibility page)</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>📊 Smart Meter</h4>
+                            <p>A smart meter providing half-hourly readings</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>📱 Octopus App</h4>
+                            <p>Connection through the Octopus Energy mobile app</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <h2>Intelligent Octopus Flux: Introduction to the tariff</h2>
+                
+                <div class="highlight-box">
+                    <p><strong>Intelligent Octopus Flux</strong> is a smart import and export tariff setup for customers who have solar panels and a GivEnergy, Solaredge, Enphase or Tesla Powerwall inverter (battery).</p>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Overview of Intelligent Octopus Flux</h3>
+                    <p>Customers connect their battery to our system through the Octopus Energy app, and we optimise their device to ensure that we're charging and discharging at periods that are greener & cheaper. We refer to these periods of charging as <strong>'smart charging'</strong>.</p>
+                    
+                    <p><strong>Intelligent Octopus Flux is a two-rate smart time of use tariff.</strong></p>
+                    
+                    <p>When we choose to control their battery, we will charge it during the day when rates are low, and discharge in the evening when rates are high.</p>
+                    
+                    <p>This means the customer will make a profit on any energy imported during the day that we then export in the evening.</p>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Key Benefits</h3>
+                    
+                    <div class="reasons-grid">
+                        <div class="reason-card positive">
+                            <h4>💰 Cost Savings</h4>
+                            <p>Customers can take advantage of lower electricity rates during off-peak hours and higher electricity rates in peak hours, leading to reductions in their energy bills.</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>⚡ Convenience</h4>
+                            <p>Kraken allows for automated scheduling and optimisation of energy use, minimising manual intervention.</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>🌱 Sustainability</h4>
+                            <p>By shifting energy consumption, IO Flux supports the use of renewable energy and helps balance the demand on the electricity grid.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <h2>Intelligent Octopus Flux Tariff Structure/Billing</h2>
+                
+                <div class="snippet-section">
+                    <h3>Tariff Periods</h3>
+                    <p>IO Flux is a <strong>variable product</strong> with two symmetrical rates for both Import and Export.</p>
+                    
+                    <p>Customers can check their rates on the Flux webpage.</p>
+                    
+                    <div class="info-box">
+                        <h4>Peak period is 4pm-7pm:</h4>
+                        <p>We target the best times within this period to discharge the battery to help the grid. This will be used by anything in the home first, and anything extra will be exported to the grid. This means they will benefit from a <strong>high export rate</strong>, whereas the import rate will also be high.</p>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h4>Off peak period:</h4>
+                        <p>Customers will benefit from a <strong>low import rate</strong> to charge up their battery and also for their home energy, where the export rate will also be low.</p>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <p><strong>Important:</strong> Intelligent Octopus Flux is a <strong>variable tariff</strong>, which means that the price you pay can rise and fall with the cost of wholesale energy.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <h2>Smart Charging with Intelligent Octopus Flux</h2>
+                
+                <div class="snippet-section">
+                    <h3>How Battery Charging Works</h3>
+                    <p>The battery charging is split into 3 parts:</p>
+                    
+                    <ol>
+                        <li>
+                            <strong>Day time charging</strong> - the battery will charge from excess solar, or from the grid if it's not sunny! We will also export any excess solar if it is sunny.
+                        </li>
+                        <li>
+                            <strong>Afternoon discharge</strong> - the battery will discharge to the grid to take advantage of Intelligent Octopus Flux's high export rates.
+                        </li>
+                        <li>
+                            <strong>Overnight top up</strong> - the battery will be topped up a little overnight, but we'll be sure to leave room so that you can charge through solar in the day.
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Visual Representation</h3>
+                    <p>The battery charging follows a pattern throughout the 24-hour period:</p>
+                    
+                    <div class="highlight-box">
+                        <ul>
+                            <li><strong>Morning (8am):</strong> Battery starts charging from solar/grid at low rates</li>
+                            <li><strong>Pre-afternoon (before 4pm):</strong> Battery reaches maximum charge (set by user)</li>
+                            <li><strong>Peak Period (4pm-7pm):</strong> Battery discharges to maximize profit from high export rates</li>
+                            <li><strong>Post-afternoon:</strong> Battery maintains minimum charge level</li>
+                            <li><strong>Overnight:</strong> Battery receives small top-up while leaving room for solar charging</li>
+                        </ul>
+                    </div>
+                    
+                    <p>The system intelligently balances battery state of charge (SoC) with the unit rates throughout the day, ensuring optimal savings and grid support.</p>
+                </div>
+            </div>
+            
             <div class="feedback-section">
                 <h2>Feedback & Improvements</h2>
                 <p>Please select "Smart Products" in the form for this tab.</p>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </div>
+        
+        <!-- SME TAB -->
         <div id="sme" class="tab-content" style="--current-primary: var(--sme-primary);">
             <div class="content-card">
-                <h2>SME Snippets</h2>
-                <p>Placeholder for SME email snippets and knowledge.</p>
+                <h2>SME - smart metering</h2>
+                <p>Business customer support and guidelines.</p>
+                
+                <div class="snippet-section">
+                    <h3>Coming Soon</h3>
+                    <p>Comprehensive SME guidelines and snippets are currently being compiled. Check back soon for updates!</p>
+                </div>
             </div>
             <div class="feedback-section">
                 <h2>Feedback & Improvements</h2>
                 <p>Please select "SME" in the form for this tab.</p>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </div>
+        
+        <!-- VULNERABLE TAB -->
         <div id="vulnerable" class="tab-content" style="--current-primary: var(--vulnerable-primary);">
             <div class="content-card">
-                <h2>Vulnerable Snippets</h2>
-                <p>Placeholder for Vulnerable email snippets and knowledge.</p>
+                <h2>Debt & Vulnerability: Core</h2>
+                
+                <div class="snippet-section">
+                    <h3>Cause-and-effect</h3>
+                    <p>When assisting a customer in debt, it's essential to recognise the <strong>potential impact</strong> on their <strong>mental health</strong>. Studies consistently reveal a <strong>strong correlation</strong> between <strong>financial difficulties</strong> and <strong>mental health challenges</strong>.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>The Mental Health & Financial Difficulty Cycle</h4>
+                        <p><strong>Financial Difficulty</strong> causes stress and anxiety, worsened by collections activity or inability to buy essentials.</p>
+                        <p>↓</p>
+                        <p><strong>Mental Health Problems</strong> develop or worsen.</p>
+                        <p>↓</p>
+                        <p>Poor mental health can make it harder to earn, manage money and spending and to ask for help.</p>
+                        <p>↓</p>
+                        <p>This perpetuates the cycle of <strong>Financial Difficulty</strong>.</p>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Priority Service Register</h3>
+                    <p>When discussing debt it's important to check for any <strong>vulnerabilities in the household</strong>. Sometimes customers will share without prompting, but we should always ask to make sure we're <strong>fully aware of their circumstances</strong>.</p>
+                    
+                    <div class="info-box">
+                        <p>Adding them to the PSR means they <strong>don't have to disclose their vulnerabilities</strong> to each person they speak to.</p>
+                        <p>They will also not have to inform a new energy supplier or other utilities, as <strong>the register is shared</strong>.</p>
+                    </div>
+                    
+                    <p>When speaking to customers, bringing up the PSR in a phone conversation doesn't have to be awkward or very personal. It may put the customer at ease to know that it's something <strong>we ask all customers</strong>.</p>
+                    
+                    <div class="highlight-box">
+                        <p><em>"While I have you on the phone, I'd like to ask if there's anyone in the household who may be eligible for the priority services register, do you mind if I ask a few questions?"</em></p>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>How can customers lower their debt?</h3>
+                    
+                    <h4>Increasing Payments:</h4>
+                    <ul>
+                        <li>Encourage them to make a payment <strong>today</strong></li>
+                        <li>Have an <strong>open discussion</strong> about their affordability</li>
+                        <li>Set up a payment plan of what they <strong>can currently afford</strong></li>
+                        <li>Ask if they have reached out to any <strong>external help</strong>, if not suggest they do and <strong>signpost</strong> them</li>
+                    </ul>
+                    
+                    <h4>Lowering Usage:</h4>
+                    <ul>
+                        <li>Energy Saving advice can help customers use energy more sustainably in the <strong>long term</strong></li>
+                        <li>Help them better <strong>understand their usage</strong> and ways to lower it</li>
+                        <li>There are a lot of resources on our Octo blogs that we can direct the customers to</li>
+                        <li>We can also signpost to external charities like Simple Energy Advice</li>
+                    </ul>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Help for customers in debt</h3>
+                    <p>Make sure what you are sending is <strong>relevant and suitable</strong> for them - don't want to overload them with options as this can be <strong>overwhelming</strong>.</p>
+                    
+                    <div class="reasons-grid">
+                        <div class="reason-card positive">
+                            <h4>National Debt Helpline</h4>
+                            <p>Free, confidential debt advice</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>StepChange</h4>
+                            <p>Free debt advice charity</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>Citizens Advice</h4>
+                            <p>Free, independent advice</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>Money Helper</h4>
+                            <p>Free financial guidance</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>Mental Health and Money Advice</h4>
+                            <p>Support for mental health & finances</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>Turn2Us</h4>
+                            <p>Grants and benefits calculator</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>Money Saving Expert</h4>
+                            <p>Money saving tips and guides</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>Help For Households</h4>
+                            <p>Government cost of living support</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
+            <div class="content-card">
+                <h2>How to Talk to Customers in Debt</h2>
+                
+                <div class="snippet-section">
+                    <h3>What can you do?</h3>
+                    <ul>
+                        <li><strong>Ask Questions</strong> - the more information you have, the better you can direct to the right solution</li>
+                        <li><strong>Empathise</strong> - this often goes a long way as customers can find it difficult to open up</li>
+                        <li><strong>Signpost</strong> - Paylink & External third parties are really good places to start, as these can help with their budget and getting support that we can't offer</li>
+                    </ul>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Key points to remember:</h3>
+                    
+                    <div class="reasons-grid">
+                        <div class="reason-card positive">
+                            <h4>💬 Communication</h4>
+                            <p>Be <strong>open</strong> and <strong>honest</strong> about the debit balance on their account.</p>
+                            <p>Allowing customers to remain in debt is <strong>not helping them</strong>.</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>💰 Affordability</h4>
+                            <p>Work with the customer to establish the <strong>best solution</strong> for them and their affordability. Set up a payment they <strong>can afford</strong> and ask them to complete a <strong>Paylink</strong>. Provide advice and information about available internal and external support.</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>❤️ Empathetic</h4>
+                            <p>Approach conversations with <strong>empathy</strong>, understand the customer's circumstances and emotions regarding their <strong>financial situation</strong>.</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>✨ Positivity</h4>
+                            <p>The conversation should be <strong>solution focussed</strong>, motivating customers to take <strong>positive action</strong>.</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>👣 Small Steps</h4>
+                            <p><strong>Big debts</strong> can be managed with <strong>small steps</strong>, such as paying slightly more than what you use.</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>📅 Long-Term</h4>
+                            <p>Encourage the customer to think <strong>long term</strong> to ensure they stay on track.</p>
+                            <p>Encourage <strong>Direct Debit</strong> when suitable. This method alleviates the need for manual payment reminders. They will also benefit from a <strong>cheaper tariff!</strong></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>What NOT to do when speaking to customers in debt</h3>
+                    
+                    <div class="warning-box">
+                        <h4>❌ Set up unrealistic payment plans</h4>
+                        <p>If a customer genuinely cannot afford their bills, encourage them to complete a Paylink and seek external help.</p>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <h4>❌ Use negative language</h4>
+                        <p>This can contribute to the fear and anxiety that may lead customers to avoid confronting the issue.</p>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <h4>❌ Downplay the significance of debt</h4>
+                        <p>This can lead to the customer avoid dealing with the situation, believing it's not an issue.</p>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <h4>❌ Apologise</h4>
+                        <p>Payment reminders (Dunning) and involving DCAs are <strong>not negative actions</strong>; they are efforts aimed at <strong>helping our customers engage</strong> with us.</p>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <h4>❌ Promise to recall them from third parties</h4>
+                        <p>If a customer hasn't paid they will move along our collections process to stop them building up further debt. We should only recall them if there's been an error or an extreme disclosure. <em>Eg. they've moved out and provided proof of this or are extremely vulnerable</em></p>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Signs to look out for</h3>
+                    <p>Some customers will explicitly ask for help, however some customers are less forward. Here are some verbal signs of <strong>affordability</strong> and <strong>vulnerability</strong> to look out for:</p>
+                    
+                    <ul>
+                        <li>"I can't afford that"</li>
+                        <li>"That's way too much"</li>
+                        <li>"I'm not sure what I can do"</li>
+                        <li>"I'm having to really cut back"</li>
+                    </ul>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Prompts - Example Responses</h3>
+                    <p>Sometimes knowing what to say is tricky, see some example responses to customers below:</p>
+                    
+                    <div class="highlight-box">
+                        <ul>
+                            <li><em>"You're taking a big step now by getting in touch."</em></li>
+                            <li><em>"The most important thing now is that we're working it out together"</em></li>
+                            <li><em>"Thank you for getting in touch with us today, this is a really positive step forwards"</em></li>
+                            <li><em>"We have lots of options available to start moving to reduce your debt here. Let's go through them and work out together which is best"</em></li>
+                            <li><em>"We are here to support you. We have a plan in place and we'll be there each step of the way"</em></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Why should we do this?</h3>
+                    
+                    <div class="reasons-grid">
+                        <div class="reason-card positive">
+                            <h4>Customer Well-being</h4>
+                            <p>Financial struggles can take a toll on a customer's overall well-being, causing stress, anxiety, and potentially affecting their mental and physical health.</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>Maintaining Positive Customer Relationships</h4>
+                            <p>Providing support during challenging times contributes to octopus' outrageously good customer service, enhancing loyalty and trust in our commitment to their well-being.</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>Preventing Escalations</h4>
+                            <p>Addressing financial challenges early can prevent customers' accounts moving further along the collections process.</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>Financial Stability</h4>
+                            <p>Helping customers regain control of their bills promotes financial stability. This not only benefits the customer but the stability of the overall customer base, reducing the amount of unrecoverable debt.</p>
+                        </div>
+                        
+                        <div class="reason-card positive">
+                            <h4>Compliance</h4>
+                            <p>We have an obligation to assist customers facing financial challenges.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-box">
+                        <p><strong>Important Note:</strong> Although we offer fantastic short term help such as standing charge holidays, they do <strong>not</strong> prevent the customer building up more debt nor tackle the root cause. So we must ensure we focus on the <strong>long term</strong>.</p>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Doing what's best for the customer</h3>
+                    <p>In order to do what's best for the customer, we should <strong>review the account checks</strong> on Kraken, to ensure that there are no account errors. Ideally, the customer's account checks should have a <strong>green tick</strong> beside each item.</p>
+                    
+                    <p>If there are <strong>any errors</strong> on the account, then we should correct these, as this will likely cause issues on the account and for the customer at a later date. We must ensure we are taking care of our customers in the long term too.</p>
+                </div>
+            </div>
+            
             <div class="feedback-section">
                 <h2>Feedback & Improvements</h2>
                 <p>Please select "Vulnerable" in the form for this tab.</p>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </div>
+        
+        <!-- EXPORT TAB -->
         <div id="export" class="tab-content" style="--current-primary: var(--export-primary);">
             <div class="content-card">
-                <h2>Export Snippets</h2>
-                <p>Placeholder for Export email snippets and knowledge.</p>
+                <h2>Export Tariffs: Core</h2>
+                
+                <div class="snippet-section">
+                    <h3>Overview</h3>
+                    <p>Our export tariffs are for customers with generation hardware (usually solar panels) who want to sell us their spare energy. We then pay them for what they export back to the grid.</p>
+                    
+                    <p>Put simply, it means that if a customer has an eligible export technology we'll buy the energy they export, sell it to the grid, and give you the money we make on your behalf.</p>
+                    
+                    <p>We measure the flow of energy using their smart or AMR meter. We record how much they import for energy they consume and how much they export for energy they send to the grid.</p>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>What is an export tariff?</h3>
+                    <p>An export tariff is a special tariff designed to credit those with technology capable of feeding energy back to the grid with money.</p>
+                    
+                    <p>This includes things like <strong>solar panels, home batteries, wind turbines</strong>, etc.</p>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>How do we do this?</h3>
+                    <p>To pay a customer with export credit, they need an MPAN enrolled capable of measuring the energy they export. This is called an <strong>Export MPAN</strong>.</p>
+                    
+                    <p>The Export MPAN measures reactive energy on the smart meters export register.</p>
+                    
+                    <p>The export register is on their main smart or AMR meter, just like their main import smart reading.</p>
+                    
+                    <p>This means we track consumption readings separate to export ones. We take both measurements from the smart meter and bill (or credit) the account based on each.</p>
+                    
+                    <p>The export register is normally found by pressing a few buttons on the smart meter.</p>
+                    
+                    <div class="warning-box">
+                        <p><strong>⚠️ CRITICAL:</strong> Please <strong>never enrol an Export MPAN yourself</strong>, this needs to be carried out by an Export Specialist (or Smart Product team).</p>
+                        <p>An export tariff will be on the Export MPAN.</p>
+                    </div>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>What is the process for getting an export tariff setup?</h3>
+                    <p>Customers signup for their export tariff of choice on our website:</p>
+                    <ul>
+                        <li><strong>Outgoing Octopus</strong> (Fixed, Agile and Lite)</li>
+                        <li><strong>Smart Energy Guarantee</strong></li>
+                        <li><strong>Octopus Flux</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>What do you need to get onto an export tariff?</h3>
+                    <ul>
+                        <li>A working and <strong>connected</strong> smart meter
+                            <ul>
+                                <li>The only exception is the SEG tariff, where the smart meter needs to be working, but can be unconnected (as long as a customer can provide a manual export reading)</li>
+                            </ul>
+                        </li>
+                        <li>An Octopus/Bulb branded account i.e. if they have a 'co-op' account, you will need to switch brands</li>
+                        <li>A <strong>MCS/Flexi-Orb certificate</strong> matching the address and import MPAN in Kraken</li>
+                        <li>A <strong>DNO commissioning confirmation letter</strong> - a G59, G83, G98 or G99 response from the DNO (proof that the DNO has been made aware of the installation)</li>
+                    </ul>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>Once setup, what will Export look like in Kraken?</h3>
+                    <ul>
+                        <li>An Export MPAN will sit with the Import MPAN</li>
+                        <li>It will have the little blue export box next to it</li>
+                        <li>Before SSD, an Export MPAN will often show as 'de-energised'. <strong>Do not panic if you see this</strong>, but if this date has passed and there has been a rejection, please raise in your site Product Hub</li>
+                        <li>The energy statement will separately show the half-hourly breakdown of a customers export for the month</li>
+                        <li>The Export tariff will sit in the 'Statements' and 'Agreements' section of Kraken with the Import tariffs</li>
+                    </ul>
+                </div>
+                
+                <div class="snippet-section">
+                    <h3>How is the Export MPAN pulling smart readings?</h3>
+                    <p>We link the Export MPAN to the Import MPAN by <strong>'configuring export'</strong>.</p>
+                    
+                    <p>This means the Export MPAN is also able to pull readings off the export register automatically just like the Import MPAN is pulling readings off the Import register.</p>
+                    
+                    <p>If it has been linked you will see smart meter details on the <strong>'Properties'</strong> tab under the Export MPAN.</p>
+                </div>
             </div>
+            
             <div class="feedback-section">
                 <h2>Feedback & Improvements</h2>
                 <p>Please select "Export" in the form for this tab.</p>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHMB2Y11r_YmEAPMua5IlONubPJFHimuvK2LPrU6Ic32u5g/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </div>
     </div>
@@ -404,6 +1441,9 @@
                 document.querySelectorAll('.sub-tab-navigation .tab-button').forEach(btn => btn.classList.remove('active'));
                 document.querySelector('.sub-tab-navigation .tab-button').classList.add('active');
             }
+            
+            // Scroll to top when changing tabs
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
        
         function openSubTab(evt, subTabId) {
